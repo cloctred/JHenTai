@@ -26,7 +26,6 @@ import '../../../model/gallery.dart';
 import '../../../model/gallery_page.dart';
 import '../../../network/eh_request.dart';
 import '../../../service/local_config_service.dart';
-import '../../../service/quick_search_service.dart';
 import '../../../service/tag_translation_service.dart';
 import '../../../utils/eh_spider_parser.dart';
 import '../../../service/log.dart';
@@ -97,7 +96,6 @@ mixin SearchPageLogicMixin on BasePageLogic {
     try {
       result = await FilePicker.platform.pickFiles(
         type: FileType.image,
-        allowCompression: false,
         compressionQuality: 0,
       );
     } on Exception catch (e) {

@@ -149,7 +149,6 @@ class DesktopSearchPage extends StatelessWidget with Scroll2TopPageMixin {
 /// imitate chrome style
 class _SearchTab extends StatefulWidget {
   const _SearchTab({
-    super.key,
     required this.name,
     required this.selected,
     required this.selectedColor,
@@ -224,7 +223,6 @@ class _SearchTabState extends State<_SearchTab> {
 /// implemented by 5 container
 class _SearchTabDivider extends StatelessWidget {
   const _SearchTabDivider({
-    super.key,
     required this.hasLeftTab,
     required this.hasRightTab,
     required this.leftTabIsSelected,

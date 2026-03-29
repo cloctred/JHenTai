@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jhentai/src/pages/popular/popular_page_logic.dart';
 import 'package:jhentai/src/pages/popular/popular_page_state.dart';

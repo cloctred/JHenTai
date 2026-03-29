@@ -42,7 +42,9 @@ extension WidgetExtension on Widget {
 
 extension StateExtension on State {
   void setStateSafely(VoidCallback fn) {
+    // ignore: invalid_use_of_protected_member
     if (mounted) {
+      // ignore: invalid_use_of_protected_member
       setState(fn);
     }
   }

@@ -759,6 +759,7 @@ class GalleryDownloadService extends GetxController with GridBasePageServiceMixi
   }
 
   /// shutdown executor
+  // ignore: unused_element
   Future<void> _shutdownExecutor() async {
     log.info('Shutdown download executor');
 

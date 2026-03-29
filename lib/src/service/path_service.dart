@@ -29,10 +29,10 @@ class PathService with JHLifeCircleBeanErrorCatch implements JHLifeCircleBean {
   Future<void> doInitBean() async {
     await Future.wait([
       getTemporaryDirectory().then((value) => tempDir = value),
-      getApplicationDocumentsDirectory().then((value) => appDocDir = value).catchError((error) => null),
-      getApplicationSupportDirectory().then((value) => appSupportDir = value).catchError((error) => null),
-      getExternalStorageDirectory().then((value) => externalStorageDir = value).catchError((error) => null),
-      getDownloadsDirectory().then((value) => systemDownloadDir = value).catchError((error) => null),
+      getApplicationDocumentsDirectory().then((value) => appDocDir = value).catchError((e) => Directory('')),
+      getApplicationSupportDirectory().then((value) => appSupportDir = value).catchError((e) => Directory('')),
+      getExternalStorageDirectory().then((value) => externalStorageDir = value).catchError((e) => Directory('')),
+      getDownloadsDirectory().then((value) => systemDownloadDir = value).catchError((e) => Directory('')),
     ]);
   }
 

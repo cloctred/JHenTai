@@ -23,6 +23,7 @@ void openThirdPartyViewer(String dirPath) {
       e,
       extraInfos: {'viewerPath': viewerPath, 'dirPath': dirPath},
     );
+    return ProcessResult(0, 1, null, null);
   }).then((result) {
     if (!isEmptyOrNull(result.stderr)) {
       toast('internalError'.tr + result.stderr);

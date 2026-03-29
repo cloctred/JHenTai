@@ -101,7 +101,7 @@ class _ColorSettingDialog extends StatefulWidget {
   final Color initialColor;
   final Color resetColor;
 
-  const _ColorSettingDialog({super.key, required this.initialColor, required this.resetColor});
+  const _ColorSettingDialog({required this.initialColor, required this.resetColor});
 
   @override
   State<_ColorSettingDialog> createState() => _ColorSettingDialogState();

@@ -106,6 +106,7 @@ class _GroupedListState<G, E> extends State<GroupedList<G, E>> {
     return _buildInCustomScrollView(context);
   }
 
+  // ignore: unused_element
   EHWheelSpeedController _buildInListView() {
     return EHWheelSpeedController(
       controller: scrollController,

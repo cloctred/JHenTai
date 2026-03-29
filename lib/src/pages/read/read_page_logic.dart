@@ -383,13 +383,13 @@ class ReadPageLogic extends GetxController {
 
   void applyCurrentBrightness() {
     if (GetPlatform.isMobile && readSetting.enableCustomReadBrightness.isTrue) {
-      ScreenBrightness().setScreenBrightness(readSetting.customBrightness.value.toDouble() / 100);
+      ScreenBrightness().setApplicationScreenBrightness(readSetting.customBrightness.value.toDouble() / 100);
     }
   }
 
   void resetBrightness() {
     if (GetPlatform.isMobile) {
-      ScreenBrightness().resetScreenBrightness();
+      ScreenBrightness().resetApplicationScreenBrightness();
     }
   }
 

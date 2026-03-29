@@ -46,7 +46,7 @@ class _Item extends StatelessWidget {
   final String name;
   final String? value;
 
-  const _Item({super.key, required this.name, this.value});
+  const _Item({required this.name, this.value});
 
   @override
   Widget build(BuildContext context) {

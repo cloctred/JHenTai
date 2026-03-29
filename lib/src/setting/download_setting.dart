@@ -69,7 +69,7 @@ class DownloadSetting with JHLifeCircleBeanWithConfigStorage implements JHLifeCi
   String toConfigString() {
     return jsonEncode({
       'downloadPath': downloadPath.value,
-      'extraGalleryScanPath': extraGalleryScanPath.value,
+      'extraGalleryScanPath': extraGalleryScanPath.toList(),
       'singleImageSavePath': singleImageSavePath.value,
       'downloadOriginalImageByDefault': downloadOriginalImageByDefault.value,
       'defaultGalleryGroup': defaultGalleryGroup.value,

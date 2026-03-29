@@ -122,7 +122,7 @@ class _EHGalleryStatDialogState extends State<EHGalleryStatDialog> {
 class _AllTimeTable extends StatelessWidget {
   final GalleryStats galleryStats;
 
-  const _AllTimeTable({super.key, required this.galleryStats});
+  const _AllTimeTable({required this.galleryStats});
 
   @override
   Widget build(BuildContext context) {
@@ -181,7 +181,7 @@ class _AllTimeTable extends StatelessWidget {
 class _LineGraph extends StatelessWidget {
   final List<VisitStat> datasource;
 
-  const _LineGraph({super.key, required this.datasource});
+  const _LineGraph({required this.datasource});
 
   @override
   Widget build(BuildContext context) {

@@ -67,7 +67,7 @@ class EHSpiderParser {
   /// [gallerys, pageCount, prevPageIndex, nextPageIndex]
   static GalleryPageInfo galleryPage2GalleryPageInfo(Headers headers, dynamic data) {
     String html = data as String;
-    Document document = parse(data);
+    Document document = parse(html);
 
     if (document.querySelector('.itg.gltm') != null) {
       return _minimalGalleryPageDocument2GalleryPageInfo(document);
@@ -518,6 +518,7 @@ class EHSpiderParser {
     String note = document.querySelector('#galpop > div > div:nth-child(3) > textarea')!.text;
 
     /// 1 / 1000 favorite note slots used. [?]
+    // ignore: unused_local_variable
     String usedSlotDesc = document.querySelector('#galpop > div > div:nth-child(3) > div:nth-child(6)')!.text;
 
     return GalleryNote(note: note);

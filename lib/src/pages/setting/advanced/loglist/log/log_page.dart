@@ -61,10 +61,11 @@ class _LogPageState extends State<LogPage> {
   }
 
   void _shareLog() {
-    Share.shareXFiles(
-      [XFile(log.path)],
-      text: basename(log.path),
-      sharePositionOrigin: Rect.fromLTWH(0, 0, fullScreenWidth, screenHeight * 2 / 3),
+    SharePlus.instance.share(
+      ShareParams(
+        files: [XFile(log.path)],
+        text: basename(log.path),
+      ),
     );
   }
 

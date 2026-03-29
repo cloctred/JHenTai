@@ -104,7 +104,7 @@ class _EHDownloadHHDialogState extends State<EHDownloadHHDialog> {
 class _HHDownloadButtonSet extends StatelessWidget {
   final GalleryHHArchive archive;
 
-  const _HHDownloadButtonSet({super.key, required this.archive});
+  const _HHDownloadButtonSet({required this.archive});
 
   @override
   Widget build(BuildContext context) {

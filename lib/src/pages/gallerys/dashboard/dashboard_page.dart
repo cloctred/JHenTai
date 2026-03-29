@@ -193,7 +193,7 @@ class DashboardPage extends BasePage {
 }
 
 class _RankListDesc extends StatelessWidget {
-  const _RankListDesc({super.key});
+  const _RankListDesc();
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +227,7 @@ class _RankListDesc extends StatelessWidget {
 }
 
 class _PopularListDesc extends StatelessWidget {
-  const _PopularListDesc({super.key});
+  const _PopularListDesc();
 
   @override
   Widget build(BuildContext context) {
@@ -263,7 +263,7 @@ class _PopularListDesc extends StatelessWidget {
 class _GalleryListDesc extends StatelessWidget {
   final List<Widget> actions;
 
-  const _GalleryListDesc({super.key, required this.actions});
+  const _GalleryListDesc({required this.actions});
 
   @override
   Widget build(BuildContext context) {

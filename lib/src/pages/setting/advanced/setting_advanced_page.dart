@@ -25,7 +25,6 @@ import '../../../enum/config_type_enum.dart';
 import '../../../routes/routes.dart';
 import '../../../service/isolate_service.dart';
 import '../../../utils/byte_util.dart';
-import '../../../utils/permission_util.dart';
 import '../../../utils/route_util.dart';
 import '../../../widget/eh_config_type_select_dialog.dart';
 
@@ -331,7 +330,6 @@ class _SettingAdvancedPageState extends State<SettingAdvancedPage> {
       result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['json'],
-        allowCompression: false,
         compressionQuality: 0,
       );
     } on Exception catch (e) {

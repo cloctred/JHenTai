@@ -152,7 +152,6 @@ class _Tag extends StatelessWidget {
   final ValueChanged<TagSetStatus> onStatusUpdated;
 
   const _Tag({
-    super.key,
     required this.tag,
     this.tagSetBackgroundColor,
     this.onTap,
@@ -239,7 +238,7 @@ enum TagSetStatus { watched, hidden, nope }
 class _ColorSettingDialog extends StatefulWidget {
   final Color initialColor;
 
-  const _ColorSettingDialog({super.key, required this.initialColor});
+  const _ColorSettingDialog({required this.initialColor});
 
   @override
   State<_ColorSettingDialog> createState() => _ColorSettingDialogState();

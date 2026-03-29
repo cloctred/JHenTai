@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:jhentai/src/extension/dio_exception_extension.dart';
 import 'package:jhentai/src/extension/widget_extension.dart';
@@ -116,6 +115,7 @@ class _ArchiveBotSettingsPageState extends State<ArchiveBotSettingsPage> {
     );
   }
 
+  // ignore: unused_element
   Widget _buildUseProxyServer() {
     return SwitchListTile(
       title: Text('useProxyServer'.tr),

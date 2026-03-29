@@ -119,7 +119,6 @@ class _EHCommentHeader extends StatelessWidget {
   final bool fromMe;
 
   const _EHCommentHeader({
-    super.key,
     required this.inDetailPage,
     required this.username,
     required this.commentTime,
@@ -161,7 +160,6 @@ class _EHCommentTextBody extends StatelessWidget {
   final dom.Element element;
 
   const _EHCommentTextBody({
-    super.key,
     required this.inDetailPage,
     this.onBlockUser,
     required this.element,
@@ -454,7 +452,6 @@ class _EHCommentFooter extends StatefulWidget {
   final Function(bool isVotingUp, String score)? onVoted;
 
   const _EHCommentFooter({
-    super.key,
     required this.inDetailPage,
     required this.commentId,
     this.lastEditTime,

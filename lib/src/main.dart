@@ -43,7 +43,6 @@ import 'package:jhentai/src/setting/site_setting.dart';
 import 'package:jhentai/src/setting/super_resolution_setting.dart';
 import 'package:jhentai/src/setting/user_setting.dart';
 import 'package:jhentai/src/widget/app_manager.dart';
-import 'exception/upload_exception.dart';
 import 'package:jhentai/src/l18n/locale_text.dart';
 import 'package:jhentai/src/routes/getx_router_observer.dart';
 import 'package:jhentai/src/routes/routes.dart';

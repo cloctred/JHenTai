@@ -25,7 +25,7 @@ class EHAsset extends StatelessWidget {
 class _CircleAssetChip extends StatelessWidget {
   final String str;
 
-  const _CircleAssetChip({super.key, required this.str});
+  const _CircleAssetChip({required this.str});
 
   @override
   Widget build(BuildContext context) {

@@ -204,7 +204,6 @@ class _ArchiveButtonSet extends StatelessWidget {
   final VoidCallback? callback;
 
   const _ArchiveButtonSet({
-    super.key,
     this.cost,
     this.size,
     this.text,

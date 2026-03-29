@@ -28,7 +28,6 @@ import 'package:saver_gallery/saver_gallery.dart';
 import 'package:share_plus/share_plus.dart';
 import '../../../../exception/eh_image_exception.dart';
 import '../../../../model/gallery_image.dart';
-import '../../../../service/path_service.dart';
 import '../../../../setting/read_setting.dart';
 import '../../../../service/log.dart';
 import '../../../../utils/route_util.dart';
@@ -221,10 +220,11 @@ abstract class BaseLayoutLogic extends GetxController with GetTickerProviderStat
     
     String fileName = '${readPageState.readPageInfo.gid!}_${readPageState.readPageInfo.token!}_$index$ext';
 
-    Share.shareXFiles(
-      [XFile.fromData(data)],
-      sharePositionOrigin: Rect.fromLTWH(0, 0, fullScreenWidth, readPageState.displayRegionSize.height * 2 / 3),
-      fileNameOverrides: [fileName],
+    SharePlus.instance.share(
+      ShareParams(
+        files: [XFile.fromData(data)],
+        fileNameOverrides: [fileName],
+      ),
     );
   }
 
@@ -234,15 +234,16 @@ abstract class BaseLayoutLogic extends GetxController with GetTickerProviderStat
       return;
     }
 
-    Share.shareXFiles(
-      [
-        XFile(
-          GalleryDownloadService.computeImageDownloadAbsolutePathFromRelativePath(
-            galleryDownloadService.galleryDownloadInfos[readPageState.readPageInfo.gid!]!.images[index]!.path!,
-          ),
-        )
-      ],
-      sharePositionOrigin: Rect.fromLTWH(0, 0, fullScreenWidth, readPageState.displayRegionSize.height * 2 / 3),
+    SharePlus.instance.share(
+      ShareParams(
+        files: [
+          XFile(
+            GalleryDownloadService.computeImageDownloadAbsolutePathFromRelativePath(
+              galleryDownloadService.galleryDownloadInfos[readPageState.readPageInfo.gid!]!.images[index]!.path!,
+            ),
+          )
+        ],
+      ),
     );
   }
 
@@ -402,10 +403,12 @@ abstract class BaseLayoutLogic extends GetxController with GetTickerProviderStat
     );
   }
 
+  // ignore: unused_element
   Alignment _computeAlignmentByTapOffset(Offset offset) {
     return Alignment((offset.dx - Get.size.width / 2) / (Get.size.width / 2), (offset.dy - Get.size.height / 2) / (Get.size.height / 2));
   }
 
+  // ignore: unused_element
   Future<bool> _saveImage2Album(Uint8List imageData, String fileName) async {
     await requestAlbumPermission();
 

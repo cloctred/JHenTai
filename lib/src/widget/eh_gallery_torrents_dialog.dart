@@ -94,7 +94,7 @@ class _EHGalleryTorrentsDialogState extends State<EHGalleryTorrentsDialog> {
 class _TorrentList extends StatelessWidget {
   final List<GalleryTorrent> galleryTorrents;
 
-  const _TorrentList({super.key, required this.galleryTorrents});
+  const _TorrentList({required this.galleryTorrents});
 
   @override
   Widget build(BuildContext context) {
