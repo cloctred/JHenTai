@@ -28,14 +28,14 @@ class EHGalleryWaterFlowCard extends StatelessWidget {
   final CardCallback? handleSecondaryTapCard;
 
   const EHGalleryWaterFlowCard({
-    Key? key,
+    super.key,
     required this.gallery,
     required this.downloaded,
     required this.listMode,
     required this.handleTapCard,
     this.handleLongPressCard,
     this.handleSecondaryTapCard,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,6 @@ class EHGalleryWaterFlowCard extends StatelessWidget {
         blur: 8,
         blurColor: UIConfig.backGroundColor(context),
         colorOpacity: 0.7,
-        child: child,
         overlay: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -69,6 +68,7 @@ class EHGalleryWaterFlowCard extends StatelessWidget {
             Text('filtered'.tr, style: TextStyle(color: UIConfig.onBackGroundColor(context))),
           ],
         ),
+        child: child,
       );
     }
 
@@ -189,7 +189,7 @@ class EHGalleryWaterFlowCard extends StatelessWidget {
 
   Widget _buildFavoriteIcon() => Icon(Icons.favorite, size: 10, color: UIConfig.favoriteTagColor[gallery.favoriteTagIndex!]);
 
-  Widget _buildPageCount() => Text(gallery.pageCount.toString() + 'P', style: const TextStyle(fontSize: 9));
+  Widget _buildPageCount() => Text('${gallery.pageCount}P', style: const TextStyle(fontSize: 9));
 
   Widget _buildLanguage() => Text(LocaleConsts.language2Abbreviation[gallery.language] ?? '', style: const TextStyle(fontSize: 9));
 
@@ -231,7 +231,7 @@ class EHGalleryWaterFlowCard extends StatelessWidget {
 class WaterFallFlowCardTagWaterFlow extends StatelessWidget {
   final LinkedHashMap<String, List<GalleryTag>> tags;
 
-  const WaterFallFlowCardTagWaterFlow({Key? key, required this.tags}) : super(key: key);
+  const WaterFallFlowCardTagWaterFlow({super.key, required this.tags});
 
   @override
   Widget build(BuildContext context) {
@@ -268,7 +268,7 @@ class WaterFallFlowCardTagWaterFlow extends StatelessWidget {
 }
 
 class WaterFallFlowTag extends StatelessWidget {
-  const WaterFallFlowTag({Key? key, required this.galleryTag}) : super(key: key);
+  const WaterFallFlowTag({super.key, required this.galleryTag});
 
   final GalleryTag galleryTag;
 

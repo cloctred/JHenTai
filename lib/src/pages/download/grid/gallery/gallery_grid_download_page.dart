@@ -25,7 +25,7 @@ import '../mixin/grid_download_page_mixin.dart';
 import 'gallery_grid_download_page_logic.dart';
 
 class GalleryGridDownloadPage extends StatelessWidget with Scroll2TopPageMixin, MultiSelectDownloadPageMixin, GalleryDownloadPageMixin, GridBasePage {
-  GalleryGridDownloadPage({Key? key}) : super(key: key);
+  GalleryGridDownloadPage({super.key});
 
   @override
   final DownloadPageGalleryType galleryType = DownloadPageGalleryType.download;
@@ -163,8 +163,8 @@ class GalleryGridDownloadPage extends StatelessWidget with Scroll2TopPageMixin, 
                       blur: 1,
                       blurColor: UIConfig.downloadPageGridCoverBlurColor,
                       colorOpacity: 0.6,
-                      child: cover,
                       overlay: const Icon(Icons.download, color: UIConfig.downloadPageGridCoverOverlayColor),
+                      child: cover,
                     ),
                   );
                 },

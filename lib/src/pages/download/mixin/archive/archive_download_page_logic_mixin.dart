@@ -111,7 +111,7 @@ mixin ArchiveDownloadPageLogicMixin on GetxController
   }
 
   Future<void> handleDeleteGroup(String oldGroup) async {
-    bool? success = await Get.dialog(EHDialog(title: 'deleteGroup'.tr + '?'));
+    bool? success = await Get.dialog(EHDialog(title: '${'deleteGroup'.tr}?'));
     if (success == null || !success) {
       return;
     }
@@ -179,7 +179,7 @@ mixin ArchiveDownloadPageLogicMixin on GetxController
                 backRoute();
 
                 if (superResolutionService.get(archive.gid, SuperResolutionType.archive) == null && archive.isOriginal) {
-                  bool? result = await Get.dialog(EHDialog(title: 'attention'.tr + '!', content: 'superResolveOriginalImageHint'.tr));
+                  bool? result = await Get.dialog(EHDialog(title: '${'attention'.tr}!', content: 'superResolveOriginalImageHint'.tr));
                   if (result == false) {
                     return;
                   }
@@ -244,8 +244,8 @@ mixin ArchiveDownloadPageLogicMixin on GetxController
           ),
         ],
         cancelButton: CupertinoActionSheetAction(
-          child: Text('cancel'.tr),
           onPressed: backRoute,
+          child: Text('cancel'.tr),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ import '../../../utils/route_util.dart';
 import '../../../utils/snack_util.dart';
 
 class SettingEHPage extends StatefulWidget {
-  const SettingEHPage({Key? key}) : super(key: key);
+  const SettingEHPage({super.key});
 
   @override
   State<SettingEHPage> createState() => _SettingEHPageState();

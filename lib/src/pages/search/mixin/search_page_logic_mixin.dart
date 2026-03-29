@@ -292,7 +292,7 @@ mixin SearchPageLogicMixin on BasePageLogic {
   }
 
   Future<void> handleClearAllSearchHistories() async {
-    bool? result = await Get.dialog(EHDialog(title: 'deleteAll'.tr + '?'));
+    bool? result = await Get.dialog(EHDialog(title: '${'deleteAll'.tr}?'));
 
     if (result == true) {
       await searchHistoryService.clearHistory();

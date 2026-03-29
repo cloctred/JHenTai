@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +16,7 @@ class SettingReadPage extends StatelessWidget {
   final TextEditingController gestureRegionWidthRatioController = TextEditingController(text: readSetting.gestureRegionWidthRatio.value.toString());
   final TextEditingController imageMaxKilobytesController = TextEditingController(text: readSetting.maxImageKilobyte.value.toString());
 
-  SettingReadPage({Key? key}) : super(key: key);
+  SettingReadPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class SettingReadPage extends StatelessWidget {
               _buildReverseTurnPageDirection().center(),
               _buildDisableTurnPageOnTap().center(),
               _buildEnableImageMaxKilobytes().center(),
-              if (readSetting.enableMaxImageKilobyte.isTrue) _buildImageMaxKilobytes(context).fadeIn(const Key('imageMaxKilobytes')).center(),
+              if (readSetting.enableMaxImageKilobyte.isTrue) FadeIn(key: const Key('imageMaxKilobytes'), child: _buildImageMaxKilobytes(context)).center(),
               _buildGestureRegionWidthRatio(context).center(),
               if (GetPlatform.isDesktop) _buildUseThirdPartyViewer().center(),
               if (GetPlatform.isDesktop) _buildThirdPartyViewerPath().center(),
@@ -49,13 +50,13 @@ class SettingReadPage extends StatelessWidget {
               _buildReadDirection().center(),
               if (GetPlatform.isMobile && readSetting.readDirection.value == ReadDirection.top2bottomList) _buildNotchOptimization().center(),
               if (readSetting.readDirection.value == ReadDirection.top2bottomList) _buildImageRegionWidthRatio(context).center(),
-              if (readSetting.isInListReadDirection) _buildPreloadDistanceInOnlineMode(context).fadeIn(const Key('preloadDistanceInOnlineMode')).center(),
-              if (readSetting.isInListReadDirection) _buildPreloadDistanceInLocalMode(context).fadeIn(const Key('preloadDistanceInLocalMode')).center(),
-              if (!readSetting.isInListReadDirection) _buildPreloadPageCount().fadeIn(const Key('preloadPageCount')).center(),
-              if (!readSetting.isInListReadDirection) _buildPreloadPageCountInLocalMode().fadeIn(const Key('preloadPageCountInLocalMode')).center(),
-              if (readSetting.isInDoubleColumnReadDirection) _buildDisplayFirstPageAlone().fadeIn(const Key('displayFirstPageAloneGlobally')).center(),
-              if (readSetting.isInListReadDirection) _buildAutoModeStyle().fadeIn(const Key('autoModeStyle')).center(),
-              if (readSetting.isInListReadDirection) _buildTurnPageMode().fadeIn(const Key('turnPageMode')).center(),
+              if (readSetting.isInListReadDirection) FadeIn(key: const Key('preloadDistanceInOnlineMode'), child: _buildPreloadDistanceInOnlineMode(context)).center(),
+              if (readSetting.isInListReadDirection) FadeIn(key: const Key('preloadDistanceInLocalMode'), child: _buildPreloadDistanceInLocalMode(context)).center(),
+              if (!readSetting.isInListReadDirection) FadeIn(key: const Key('preloadPageCount'), child: _buildPreloadPageCount()).center(),
+              if (!readSetting.isInListReadDirection) FadeIn(key: const Key('preloadPageCountInLocalMode'), child: _buildPreloadPageCountInLocalMode()).center(),
+              if (readSetting.isInDoubleColumnReadDirection) FadeIn(key: const Key('displayFirstPageAloneGlobally'), child: _buildDisplayFirstPageAlone()).center(),
+              if (readSetting.isInListReadDirection) FadeIn(key: const Key('autoModeStyle'), child: _buildAutoModeStyle()).center(),
+              if (readSetting.isInListReadDirection) FadeIn(key: const Key('turnPageMode'), child: _buildTurnPageMode()).center(),
               _buildImageSpace().center(),
             ],
           ).withListTileTheme(context),
@@ -136,28 +137,28 @@ class SettingReadPage extends StatelessWidget {
         },
         items: const [
           DropdownMenuItem(
-            child: Text('0'),
             value: 0,
+            child: Text('0'),
           ),
           DropdownMenuItem(
-            child: Text('2'),
             value: 2,
+            child: Text('2'),
           ),
           DropdownMenuItem(
-            child: Text('4'),
             value: 4,
+            child: Text('4'),
           ),
           DropdownMenuItem(
-            child: Text('6'),
             value: 6,
+            child: Text('6'),
           ),
           DropdownMenuItem(
-            child: Text('8'),
             value: 7,
+            child: Text('8'),
           ),
           DropdownMenuItem(
-            child: Text('10'),
             value: 10,
+            child: Text('10'),
           ),
         ],
       ),
@@ -276,9 +277,9 @@ class SettingReadPage extends StatelessWidget {
         elevation: 4,
         onChanged: (DeviceDirection? newValue) => readSetting.saveDeviceDirection(newValue!),
         items: [
-          DropdownMenuItem(child: Text('followSystem'.tr), value: DeviceDirection.followSystem),
-          DropdownMenuItem(child: Text('landscape'.tr), value: DeviceDirection.landscape),
-          DropdownMenuItem(child: Text('portrait'.tr), value: DeviceDirection.portrait),
+          DropdownMenuItem(value: DeviceDirection.followSystem, child: Text('followSystem'.tr)),
+          DropdownMenuItem(value: DeviceDirection.landscape, child: Text('landscape'.tr)),
+          DropdownMenuItem(value: DeviceDirection.portrait, child: Text('portrait'.tr)),
         ],
       ).marginOnly(right: 12),
     );
@@ -291,7 +292,7 @@ class SettingReadPage extends StatelessWidget {
         value: readSetting.readDirection.value,
         elevation: 4,
         onChanged: (ReadDirection? newValue) => readSetting.saveReadDirection(newValue!),
-        items: ReadDirection.values.map((e) => DropdownMenuItem(child: Text(e.name.tr), value: e)).toList(),
+        items: ReadDirection.values.map((e) => DropdownMenuItem(value: e, child: Text(e.name.tr))).toList(),
       ).marginOnly(right: 12),
     );
   }
@@ -438,13 +439,13 @@ class SettingReadPage extends StatelessWidget {
               readSetting.savePreloadDistance(newValue!);
             },
             items: const [
-              DropdownMenuItem(child: Text('0'), value: 0),
-              DropdownMenuItem(child: Text('1'), value: 1),
-              DropdownMenuItem(child: Text('2'), value: 2),
-              DropdownMenuItem(child: Text('3'), value: 3),
-              DropdownMenuItem(child: Text('5'), value: 5),
-              DropdownMenuItem(child: Text('8'), value: 8),
-              DropdownMenuItem(child: Text('10'), value: 10),
+              DropdownMenuItem(value: 0, child: Text('0')),
+              DropdownMenuItem(value: 1, child: Text('1')),
+              DropdownMenuItem(value: 2, child: Text('2')),
+              DropdownMenuItem(value: 3, child: Text('3')),
+              DropdownMenuItem(value: 5, child: Text('5')),
+              DropdownMenuItem(value: 8, child: Text('8')),
+              DropdownMenuItem(value: 10, child: Text('10')),
             ],
           ),
           Text('ScreenHeight'.tr, style: UIConfig.settingPageListTileTrailingTextStyle(context)).marginSymmetric(horizontal: 12),
@@ -466,13 +467,13 @@ class SettingReadPage extends StatelessWidget {
               readSetting.savePreloadDistanceLocal(newValue!);
             },
             items: const [
-              DropdownMenuItem(child: Text('0'), value: 0),
-              DropdownMenuItem(child: Text('1'), value: 1),
-              DropdownMenuItem(child: Text('2'), value: 2),
-              DropdownMenuItem(child: Text('3'), value: 3),
-              DropdownMenuItem(child: Text('5'), value: 5),
-              DropdownMenuItem(child: Text('8'), value: 8),
-              DropdownMenuItem(child: Text('10'), value: 10),
+              DropdownMenuItem(value: 0, child: Text('0')),
+              DropdownMenuItem(value: 1, child: Text('1')),
+              DropdownMenuItem(value: 2, child: Text('2')),
+              DropdownMenuItem(value: 3, child: Text('3')),
+              DropdownMenuItem(value: 5, child: Text('5')),
+              DropdownMenuItem(value: 8, child: Text('8')),
+              DropdownMenuItem(value: 10, child: Text('10')),
             ],
           ),
           Text('ScreenHeight'.tr, style: UIConfig.settingPageListTileTrailingTextStyle(context)).marginSymmetric(horizontal: 12),
@@ -491,13 +492,13 @@ class SettingReadPage extends StatelessWidget {
           readSetting.savePreloadPageCount(newValue!);
         },
         items: const [
-          DropdownMenuItem(child: Text('0'), value: 0),
-          DropdownMenuItem(child: Text('1'), value: 1),
-          DropdownMenuItem(child: Text('2'), value: 2),
-          DropdownMenuItem(child: Text('3'), value: 3),
-          DropdownMenuItem(child: Text('5'), value: 5),
-          DropdownMenuItem(child: Text('8'), value: 8),
-          DropdownMenuItem(child: Text('10'), value: 10),
+          DropdownMenuItem(value: 0, child: Text('0')),
+          DropdownMenuItem(value: 1, child: Text('1')),
+          DropdownMenuItem(value: 2, child: Text('2')),
+          DropdownMenuItem(value: 3, child: Text('3')),
+          DropdownMenuItem(value: 5, child: Text('5')),
+          DropdownMenuItem(value: 8, child: Text('8')),
+          DropdownMenuItem(value: 10, child: Text('10')),
         ],
       ).marginOnly(right: 12),
     );
@@ -513,13 +514,13 @@ class SettingReadPage extends StatelessWidget {
           readSetting.savePreloadPageCountLocal(newValue!);
         },
         items: const [
-          DropdownMenuItem(child: Text('0'), value: 0),
-          DropdownMenuItem(child: Text('1'), value: 1),
-          DropdownMenuItem(child: Text('2'), value: 2),
-          DropdownMenuItem(child: Text('3'), value: 3),
-          DropdownMenuItem(child: Text('5'), value: 5),
-          DropdownMenuItem(child: Text('8'), value: 8),
-          DropdownMenuItem(child: Text('10'), value: 10),
+          DropdownMenuItem(value: 0, child: Text('0')),
+          DropdownMenuItem(value: 1, child: Text('1')),
+          DropdownMenuItem(value: 2, child: Text('2')),
+          DropdownMenuItem(value: 3, child: Text('3')),
+          DropdownMenuItem(value: 5, child: Text('5')),
+          DropdownMenuItem(value: 8, child: Text('8')),
+          DropdownMenuItem(value: 10, child: Text('10')),
         ],
       ).marginOnly(right: 12),
     );
@@ -542,8 +543,8 @@ class SettingReadPage extends StatelessWidget {
         alignment: AlignmentDirectional.centerEnd,
         onChanged: (AutoModeStyle? newValue) => readSetting.saveAutoModeStyle(newValue!),
         items: [
-          DropdownMenuItem(child: Text('scroll'.tr), value: AutoModeStyle.scroll),
-          DropdownMenuItem(child: Text('turnPage'.tr), value: AutoModeStyle.turnPage),
+          DropdownMenuItem(value: AutoModeStyle.scroll, child: Text('scroll'.tr)),
+          DropdownMenuItem(value: AutoModeStyle.turnPage, child: Text('turnPage'.tr)),
         ],
       ).marginOnly(right: 12),
     );
@@ -558,9 +559,9 @@ class SettingReadPage extends StatelessWidget {
         elevation: 4,
         onChanged: (TurnPageMode? newValue) => readSetting.saveTurnPageMode(newValue!),
         items: [
-          DropdownMenuItem(child: Text('image'.tr), value: TurnPageMode.image),
-          DropdownMenuItem(child: Text('screen'.tr), value: TurnPageMode.screen),
-          DropdownMenuItem(child: Text('adaptive'.tr), value: TurnPageMode.adaptive),
+          DropdownMenuItem(value: TurnPageMode.image, child: Text('image'.tr)),
+          DropdownMenuItem(value: TurnPageMode.screen, child: Text('screen'.tr)),
+          DropdownMenuItem(value: TurnPageMode.adaptive, child: Text('adaptive'.tr)),
         ],
       ).marginOnly(right: 12),
     );

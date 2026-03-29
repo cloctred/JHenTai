@@ -15,13 +15,13 @@ class EHDownloadDialog extends StatefulWidget {
   final bool downloadOriginalImage;
 
   const EHDownloadDialog({
-    Key? key,
+    super.key,
     required this.title,
     this.currentGroup,
     required this.candidates,
     this.showDownloadOriginalImageCheckBox = false,
     this.downloadOriginalImage = false,
-  }) : super(key: key);
+  });
 
   @override
   State<EHDownloadDialog> createState() => _EHDownloadDialogState();
@@ -95,7 +95,7 @@ class _EHDownloadDialogState extends State<EHDownloadDialog> {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('downloadOriginalImage'.tr + ' ?', style: const TextStyle(fontSize: UIConfig.groupDialogCheckBoxTextSize)),
+          Text('${'downloadOriginalImage'.tr} ?', style: const TextStyle(fontSize: UIConfig.groupDialogCheckBoxTextSize)),
           Checkbox(
             value: downloadOriginalImage,
             activeColor: UIConfig.groupDialogCheckBoxColor(context),

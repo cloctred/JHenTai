@@ -33,7 +33,7 @@ import 'gallery_list_download_page_logic.dart';
 import 'gallery_list_download_page_state.dart';
 
 class GalleryListDownloadPage extends StatelessWidget with Scroll2TopPageMixin, MultiSelectDownloadPageMixin, GalleryDownloadPageMixin {
-  GalleryListDownloadPage({Key? key}) : super(key: key);
+  GalleryListDownloadPage({super.key});
 
   final GalleryListDownloadPageLogic logic = Get.put<GalleryListDownloadPageLogic>(GalleryListDownloadPageLogic(), permanent: true);
   final GalleryListDownloadPageState state = Get.find<GalleryListDownloadPageLogic>().state;
@@ -65,7 +65,7 @@ class GalleryListDownloadPage extends StatelessWidget with Scroll2TopPageMixin, 
       centerTitle: true,
       leading: styleSetting.isInV2Layout
           ? IconButton(
-              icon: isRouteAtTop(Routes.download) ? const Icon(Icons.arrow_back) : const Icon(FontAwesomeIcons.bars, size: 20),
+              icon: isRouteAtTop(Routes.download) ? const Icon(Icons.arrow_back) : const FaIcon(FontAwesomeIcons.bars, size: 20),
               onPressed: () {
                 if (isRouteAtTop(Routes.download)) {
                   backRoute(currentRoute: Routes.download);
@@ -185,7 +185,7 @@ class GalleryListDownloadPage extends StatelessWidget with Scroll2TopPageMixin, 
           children: [
             const SizedBox(width: UIConfig.downloadPageGroupHeaderWidth, child: Center(child: Icon(Icons.folder_open))),
             Text(
-              '$groupName${'(' + logic.downloadService.gallerysWithGroup(groupName).length.toString() + ')'}',
+              '$groupName${'(${logic.downloadService.gallerysWithGroup(groupName).length})'}',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
@@ -220,7 +220,7 @@ class GalleryListDownloadPage extends StatelessWidget with Scroll2TopPageMixin, 
           onPressed: (_) => logic.handleChangeGroup(gallery),
         ),
         SlidableAction(
-          icon: FontAwesomeIcons.sort,
+          icon: FontAwesomeIcons.sort.data,
           backgroundColor: UIConfig.downloadPageActionBackGroundColor(context),
           onPressed: (BuildContext context) => logic.showPrioritySheet(gallery, context),
         ),

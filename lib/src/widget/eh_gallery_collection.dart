@@ -25,7 +25,7 @@ Widget EHGalleryCollection({
   CardCallback? handleSecondaryTapCard,
   VoidCallback? handleLoadMore,
 }) {
-  Widget _buildGalleryList() {
+  Widget buildGalleryList() {
     /// use FlutterSliverList to [keepPosition] when insert items at top
     return FlutterSliverList(
       key: key,
@@ -61,7 +61,7 @@ Widget EHGalleryCollection({
     );
   }
 
-  Widget _buildGalleryWaterfallFlow() {
+  Widget buildGalleryWaterfallFlow() {
     return SliverPadding(
       key: key,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -99,8 +99,8 @@ Widget EHGalleryCollection({
   }
 
   if (listMode == ListMode.flat || listMode == ListMode.flatWithoutTags || listMode == ListMode.listWithoutTags || listMode == ListMode.listWithTags) {
-    return _buildGalleryList();
+    return buildGalleryList();
   }
 
-  return _buildGalleryWaterfallFlow();
+  return buildGalleryWaterfallFlow();
 }

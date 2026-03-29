@@ -89,7 +89,7 @@ class TagTranslationService with JHLifeCircleBeanErrorCatch implements JHLifeCir
           url: downloadUrl,
           path: savePath,
           receiveTimeout: 10 * 60 * 1000,
-          onReceiveProgress: (count, total) => downloadProgress.value = (count / 1024 / 1024).toStringAsFixed(2) + ' MB',
+          onReceiveProgress: (count, total) => downloadProgress.value = '${(count / 1024 / 1024).toStringAsFixed(2)} MB',
         ),
         maxAttempts: 5,
         onRetry: (error) => log.warning('Download tag translation data failed, retry.'),
@@ -123,14 +123,14 @@ class TagTranslationService with JHLifeCircleBeanErrorCatch implements JHLifeCir
       String namespace = data['namespace'];
       Map tags = data['data'] as Map;
       tags.forEach((key, value) {
-        String _key = key as String;
+        String key1 = key as String;
         String tagName = RegExp(r'.*>(.+)<.*').firstMatch((value['name']))!.group(1)!;
         String fullTagName = value['name'];
         String intro = value['intro'];
         String links = value['links'];
         tagList.add(TagData(
           namespace: namespace,
-          key: _key,
+          key: key1,
           translatedNamespace: EHNamespace.findNameSpaceFromDescOrAbbr(namespace)?.chineseDesc,
           tagName: tagName,
           fullTagName: fullTagName,

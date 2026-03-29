@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'dart:io' as io;
-import 'dart:io';
-
 import 'package:collection/collection.dart';
 import 'package:drift/drift.dart';
 
@@ -30,7 +28,6 @@ import 'package:jhentai/src/extension/directory_extension.dart';
 import 'package:jhentai/src/service/path_service.dart';
 import 'package:jhentai/src/service/log.dart';
 import 'package:path/path.dart';
-import 'package:sqlite3_flutter_libs/sqlite3_flutter_libs.dart';
 import 'package:sqlite3/sqlite3.dart';
 
 import '../model/gallery.dart';
@@ -385,10 +382,6 @@ class AppDb extends _$AppDb {
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     final file = io.File(join(pathService.getVisibleDir().path, 'db.sqlite'));
-
-    if (Platform.isAndroid) {
-      await applyWorkaroundToOpenSqlite3OnOldAndroidVersions();
-    }
 
     sqlite3.tempDirectory = pathService.tempDir.path;
 

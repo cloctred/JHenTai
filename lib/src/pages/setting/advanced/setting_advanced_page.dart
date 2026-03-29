@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:android_intent_plus/android_intent.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
@@ -29,7 +30,7 @@ import '../../../utils/route_util.dart';
 import '../../../widget/eh_config_type_select_dialog.dart';
 
 class SettingAdvancedPage extends StatefulWidget {
-  const SettingAdvancedPage({Key? key}) : super(key: key);
+  const SettingAdvancedPage({super.key});
 
   @override
   _SettingAdvancedPageState createState() => _SettingAdvancedPageState();

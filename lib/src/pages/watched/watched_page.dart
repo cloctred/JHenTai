@@ -8,18 +8,14 @@ import 'watched_page_logic.dart';
 
 class WatchedPage extends BasePage {
   const WatchedPage({
-    Key? key,
-    bool showMenuButton = false,
-    bool showTitle = false,
-    String? name,
+    super.key,
+    super.showMenuButton,
+    super.showTitle,
+    super.name,
   }) : super(
-          key: key,
-          showMenuButton: showMenuButton,
           showJumpButton: true,
           showFilterButton: true,
-          showTitle: showTitle,
           showScroll2TopButton: true,
-          name: name,
         );
 
   @override

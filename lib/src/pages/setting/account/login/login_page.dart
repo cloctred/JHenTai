@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
   final LoginPageLogic logic = Get.put<LoginPageLogic>(LoginPageLogic());
   final LoginPageState state = Get.find<LoginPageLogic>().state;
 
-  LoginPage({Key? key}) : super(key: key);
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -161,7 +161,7 @@ class LoginPage extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'ipb_member_id',
           hintStyle: TextStyle(color: UIConfig.loginPageTextHintColor(context), fontSize: UIConfig.loginPageTextHintSize, height: 1),
-          prefixIcon: Icon(FontAwesomeIcons.cookieBite, size: 18, color: UIConfig.loginPagePrefixIconColor(context)),
+          prefixIcon: FaIcon(FontAwesomeIcons.cookieBite, size: 18, color: UIConfig.loginPagePrefixIconColor(context)),
           suffixIcon: const SizedBox(
             height: 8,
             width: 8,
@@ -184,7 +184,7 @@ class LoginPage extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'ipb_pass_hash',
           hintStyle: TextStyle(color: UIConfig.loginPageTextHintColor(context), fontSize: UIConfig.loginPageTextHintSize, height: 1),
-          prefixIcon: Icon(FontAwesomeIcons.cookieBite, size: 18, color: UIConfig.loginPagePrefixIconColor(context)),
+          prefixIcon: FaIcon(FontAwesomeIcons.cookieBite, size: 18, color: UIConfig.loginPagePrefixIconColor(context)),
           suffixIcon: const SizedBox(
             height: 8,
             width: 8,
@@ -209,7 +209,7 @@ class LoginPage extends StatelessWidget {
         decoration: InputDecoration(
           hintText: 'igneousHint'.tr,
           hintStyle: TextStyle(color: UIConfig.loginPageTextHintColor(context), fontSize: UIConfig.loginPageTextHintSize, height: 1),
-          prefixIcon: Icon(FontAwesomeIcons.cookieBite, size: 18, color: UIConfig.loginPagePrefixIconColor(context)),
+          prefixIcon: FaIcon(FontAwesomeIcons.cookieBite, size: 18, color: UIConfig.loginPagePrefixIconColor(context)),
         ),
         onChanged: (igneous) => state.igneous = igneous,
         onFieldSubmitted: (v) => logic.handleLogin(),
@@ -296,7 +296,7 @@ class LoginPage extends StatelessWidget {
 }
 
 class _TopArea extends StatelessWidget {
-  const _TopArea({Key? key}) : super(key: key);
+  const _TopArea({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -28,7 +28,7 @@ class ThumbnailsPage extends StatelessWidget with Scroll2TopPageMixin {
   @override
   Scroll2TopStateMixin get scroll2TopState => state;
 
-  ThumbnailsPage({Key? key}) : super(key: key);
+  ThumbnailsPage({super.key});
 
   String get _mainTitleText =>
       logic.detailsPageState.gallery?.title ??
@@ -55,7 +55,7 @@ class ThumbnailsPage extends StatelessWidget with Scroll2TopPageMixin {
       title: Text(_mainTitleText, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
       actions: [
         IconButton(
-          icon: const Icon(FontAwesomeIcons.paperPlane, size: 21),
+          icon: const FaIcon(FontAwesomeIcons.paperPlane, size: 21),
           visualDensity: const VisualDensity(vertical: -2),
           onPressed: logic.handleTapJumpButton,
         ),

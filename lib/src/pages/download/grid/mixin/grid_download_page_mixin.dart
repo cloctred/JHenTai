@@ -49,7 +49,7 @@ mixin GridBasePage on StatelessWidget implements Scroll2TopPageMixin {
       centerTitle: true,
       leading: styleSetting.isInV2Layout
           ? IconButton(
-              icon: isRouteAtTop(Routes.download) ? const Icon(Icons.arrow_back) : const Icon(FontAwesomeIcons.bars, size: 20),
+              icon: isRouteAtTop(Routes.download) ? const Icon(Icons.arrow_back) : const FaIcon(FontAwesomeIcons.bars, size: 20),
               onPressed: () {
                 if (isRouteAtTop(Routes.download)) {
                   backRoute(currentRoute: Routes.download);
@@ -214,7 +214,7 @@ mixin GridBasePage on StatelessWidget implements Scroll2TopPageMixin {
 class ReturnWidget extends StatelessWidget {
   final VoidCallback onTap;
 
-  const ReturnWidget({Key? key, required this.onTap}) : super(key: key);
+  const ReturnWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -240,7 +240,7 @@ class GridGallery extends StatelessWidget {
   final VoidCallback? onTertiaryTap;
 
   const GridGallery({
-    Key? key,
+    super.key,
     required this.title,
     required this.widget,
     required this.parseFromBot,
@@ -252,7 +252,7 @@ class GridGallery extends StatelessWidget {
     this.onLongPress,
     this.onSecondTap,
     this.onTertiaryTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -356,7 +356,7 @@ class GridGroup extends StatelessWidget {
   final VoidCallback? onSecondTap;
 
   const GridGroup({
-    Key? key,
+    super.key,
     required this.groupName,
     required this.contentSize,
     required this.widgets,
@@ -364,7 +364,7 @@ class GridGroup extends StatelessWidget {
     this.emptyIcon,
     this.onLongPress,
     this.onSecondTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -404,7 +404,7 @@ class GridGroup extends StatelessWidget {
                     ),
             ),
           ),
-          Text('$groupName${contentSize == null ? '' : '(' + contentSize.toString() + ')'}', maxLines: 1, overflow: TextOverflow.ellipsis),
+          Text('$groupName${contentSize == null ? '' : '($contentSize)'}', maxLines: 1, overflow: TextOverflow.ellipsis),
         ],
       ),
     );

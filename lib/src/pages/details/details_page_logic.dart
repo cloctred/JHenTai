@@ -847,7 +847,7 @@ class DetailsPageLogic extends GetxController with LoginRequiredMixin, Scroll2To
     bool? result = await showDialog(
       context: context,
       builder: (_) => EHDialog(
-        title: 'delete'.tr + '?',
+        title: '${'delete'.tr}?',
         content: isUpdatingDependent ? 'deleteUpdatingDependentHint'.tr : null,
       ),
     );

@@ -26,14 +26,14 @@ abstract class BasePage<L extends BasePageLogic, S extends BasePageState> extend
   final String? name;
 
   const BasePage({
-    Key? key,
+    super.key,
     this.showMenuButton = false,
     this.showJumpButton = false,
     this.showFilterButton = false,
     this.showScroll2TopButton = false,
     this.showTitle = false,
     this.name,
-  }) : super(key: key);
+  });
 
   L get logic;
 
@@ -70,7 +70,7 @@ abstract class BasePage<L extends BasePageLogic, S extends BasePageState> extend
 
   Widget buildAppBarMenuButton(BuildContext context) {
     return IconButton(
-      icon: const Icon(FontAwesomeIcons.bars, size: 20),
+      icon: const FaIcon(FontAwesomeIcons.bars, size: 20),
       onPressed: () => TapMenuButtonNotification().dispatch(context),
     );
   }
@@ -78,7 +78,7 @@ abstract class BasePage<L extends BasePageLogic, S extends BasePageState> extend
   List<Widget> buildAppBarActions() {
     return [
       if (showJumpButton && state.gallerys.isNotEmpty)
-        IconButton(icon: const Icon(FontAwesomeIcons.paperPlane, size: 20), onPressed: logic.handleTapJumpButton),
+        IconButton(icon: const FaIcon(FontAwesomeIcons.paperPlane, size: 20), onPressed: logic.handleTapJumpButton),
       if (showFilterButton) IconButton(icon: const Icon(Icons.filter_alt_outlined, size: 28), onPressed: logic.handleTapFilterButton),
     ];
   }

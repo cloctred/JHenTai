@@ -156,7 +156,7 @@ abstract class BaseLayoutLogic extends GetxController with GetTickerProviderStat
               },
             ),
         ],
-        cancelButton: CupertinoActionSheetAction(child: Text('cancel'.tr), onPressed: backRoute),
+        cancelButton: CupertinoActionSheetAction(onPressed: backRoute, child: Text('cancel'.tr)),
       ),
     );
   }
@@ -192,7 +192,7 @@ abstract class BaseLayoutLogic extends GetxController with GetTickerProviderStat
             },
           ),
         ],
-        cancelButton: CupertinoActionSheetAction(child: Text('cancel'.tr), onPressed: backRoute),
+        cancelButton: CupertinoActionSheetAction(onPressed: backRoute, child: Text('cancel'.tr)),
       ),
     );
   }

@@ -9097,10 +9097,9 @@ final class $$ImageTableReferences
           $_aliasNameGenerator(db.image.gid, db.galleryDownloaded.gid));
 
   $$GalleryDownloadedTableProcessedTableManager? get gid {
-    if ($_item.gid == null) return null;
     final manager =
         $$GalleryDownloadedTableTableManager($_db, $_db.galleryDownloaded)
-            .filter((f) => f.gid($_item.gid!));
+            .filter((f) => f.gid($_item.gid));
     final item = $_typedResult.readTableOrNull(_gidTable($_db));
     if (item == null) return manager;
     return ProcessedTableManager(

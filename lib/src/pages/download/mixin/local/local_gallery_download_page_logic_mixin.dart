@@ -52,7 +52,7 @@ mixin LocalGalleryDownloadPageLogicMixin on GetxController {
   }
 
   Future<void> handleRemoveItem(LocalGallery gallery) async {
-    bool? result = await Get.dialog(EHDialog(title: 'deleteLocalGalleryHint'.tr + '?'));
+    bool? result = await Get.dialog(EHDialog(title: '${'deleteLocalGalleryHint'.tr}?'));
     if (result == true) {
       doRemoveItem(gallery);
     }
@@ -133,8 +133,8 @@ mixin LocalGalleryDownloadPageLogicMixin on GetxController {
           ),
         ],
         cancelButton: CupertinoActionSheetAction(
-          child: Text('cancel'.tr),
           onPressed: route.backRoute,
+          child: Text('cancel'.tr),
         ),
       ),
     );

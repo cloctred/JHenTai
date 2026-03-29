@@ -49,19 +49,17 @@ class _TabletLayoutPageV2State extends State<TabletLayoutPageV2> {
             ResizableChild(
               child: _leftColumn(),
               size: ResizableSize.ratio(windowService.leftColumnWidthRatio),
-              minSize: 100,
+              divider: ResizableDivider(
+                thickness: 1.5,
+                padding: 7.5,
+                color: UIConfig.layoutDividerColor(context),
+              ),
             ),
             ResizableChild(
               child: _rightColumn(),
               size: ResizableSize.ratio(1 - windowService.leftColumnWidthRatio),
-              minSize: 100,
             ),
           ],
-          divider: ResizableDivider(
-            thickness: 1.5,
-            size: 7.5,
-            color: UIConfig.layoutDividerColor(context),
-          ),
         ),
       ),
     );

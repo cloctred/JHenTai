@@ -8,17 +8,13 @@ import '../base/base_page.dart';
 
 class PopularPage extends BasePage {
   const PopularPage({
-    Key? key,
-    bool showMenuButton = false,
-    bool showTitle = false,
-    String? name,
+    super.key,
+    super.showMenuButton,
+    super.showTitle,
+    super.name,
   }) : super(
-          key: key,
-          showMenuButton: showMenuButton,
-          showTitle: showTitle,
           showJumpButton: false,
           showScroll2TopButton: true,
-          name: name,
         );
 
   @override

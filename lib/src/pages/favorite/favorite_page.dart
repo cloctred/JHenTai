@@ -8,18 +8,14 @@ import 'favorite_page_state.dart';
 
 class FavoritePage extends BasePage {
   const FavoritePage({
-    Key? key,
-    bool showMenuButton = false,
-    bool showTitle = false,
-    String? name,
+    super.key,
+    super.showMenuButton,
+    super.showTitle,
+    super.name,
   }) : super(
-          key: key,
-          showMenuButton: showMenuButton,
           showJumpButton: true,
           showFilterButton: true,
           showScroll2TopButton: true,
-          showTitle: showTitle,
-          name: name,
         );
 
   @override
@@ -31,7 +27,7 @@ class FavoritePage extends BasePage {
   @override
   List<Widget> buildAppBarActions() {
     return [
-      if (state.gallerys.isNotEmpty) IconButton(icon: const Icon(FontAwesomeIcons.paperPlane, size: 20), onPressed: logic.handleTapJumpButton),
+      if (state.gallerys.isNotEmpty) IconButton(icon: const FaIcon(FontAwesomeIcons.paperPlane, size: 20), onPressed: logic.handleTapJumpButton),
       if (state.gallerys.isNotEmpty) IconButton(icon: const Icon(Icons.sort), onPressed: logic.handleChangeSortOrder),
       IconButton(icon: const Icon(Icons.filter_alt_outlined, size: 28), onPressed: logic.handleTapFilterButton),
     ];

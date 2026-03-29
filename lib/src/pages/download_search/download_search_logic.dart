@@ -322,7 +322,7 @@ class DownloadSearchLogic extends GetxController with UpdateGlobalGalleryStatusL
             },
           ),
         ],
-        cancelButton: CupertinoActionSheetAction(child: Text('cancel'.tr), onPressed: backRoute),
+        cancelButton: CupertinoActionSheetAction(onPressed: backRoute, child: Text('cancel'.tr)),
       ),
     );
   }
@@ -348,8 +348,8 @@ class DownloadSearchLogic extends GetxController with UpdateGlobalGalleryStatusL
           ),
         ],
         cancelButton: CupertinoActionSheetAction(
-          child: Text('cancel'.tr),
           onPressed: backRoute,
+          child: Text('cancel'.tr),
         ),
       ),
     );
@@ -387,7 +387,7 @@ class DownloadSearchLogic extends GetxController with UpdateGlobalGalleryStatusL
       bool? result = await showDialog(
         context: context,
         builder: (_) => EHDialog(
-          title: 'delete'.tr + '?',
+          title: '${'delete'.tr}?',
           content: 'deleteUpdatingDependentHint'.tr,
         ),
       );

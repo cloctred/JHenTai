@@ -16,7 +16,7 @@ class EHDashboardCard extends StatefulWidget {
   final Gallery gallery;
   final String? badge;
 
-  const EHDashboardCard({Key? key, required this.gallery, this.badge}) : super(key: key);
+  const EHDashboardCard({super.key, required this.gallery, this.badge});
 
   @override
   State<EHDashboardCard> createState() => _EHDashboardCardState();
@@ -40,8 +40,8 @@ class _EHDashboardCardState extends State<EHDashboardCard> {
         child: Stack(
           children: [
             _buildCover(widget.gallery.cover),
-            if (loadSuccess) Positioned(child: _buildShade(), height: 60, width: UIConfig.dashboardCardSize, bottom: 0),
-            if (loadSuccess) Positioned(child: _buildGalleryDesc(), width: UIConfig.dashboardCardSize, bottom: 10),
+            if (loadSuccess) Positioned(height: 60, width: UIConfig.dashboardCardSize, bottom: 0, child: _buildShade()),
+            if (loadSuccess) Positioned(width: UIConfig.dashboardCardSize, bottom: 10, child: _buildGalleryDesc()),
           ],
         ),
       ),
